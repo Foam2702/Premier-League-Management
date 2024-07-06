@@ -9,10 +9,10 @@
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "events": {
-		"restart": "kill-port --port 5000",
-		"crash": "kill-port --port 5000"
-	 },
-	"delay": "1500",
+    "restart": "kill-port --port 5000",
+    "crash": "kill-port --port 5000"
+  },
+  "delay": "1500",
   "keywords": [],
   "author": "Bien Viet Pham",
   "license": "ISC",
@@ -36,6 +36,7 @@
     "nodemon": "^2.0.20",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
+    "postgres": "^3.4.4",
     "sequelize": "^6.27.0",
     "sequelize-cli": "^6.5.2",
     "session": "^0.1.0"

@@ -87,7 +87,7 @@ module.exports = {
     );
     return club;
   },
-  searchClub: async (club) => {},
+  searchClub: async (club) => { },
   getPlayers: async (id) => {
     const players = await db.load(
       `select * from cau_thu where DOI_BONG_ID_Doi_Bong=${id}`
