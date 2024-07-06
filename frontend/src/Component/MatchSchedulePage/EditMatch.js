@@ -21,7 +21,7 @@ function EditMatch(props) {
         //     let birthday = new Date(data[0].Ngay_Sinh_CT);
         //     data[0].Ngay_Sinh_CT = birthday.toLocaleDateString("en-CA");
         const TeamListDataFetch = await fetch(
-          `http://52.64.166.62:443/api/clubs/`
+          `https://premier-league-management-production.up.railway.app/api/clubs/`
         ).then((res) => res.json());
         console.log(TeamListDataFetch);
         setTeamList([...TeamListDataFetch]);
@@ -51,7 +51,7 @@ function EditMatch(props) {
     console.log(updateMatch);
     try {
       axios.put(
-        `http://52.64.166.62:443/api/matches/${MatchScheduleData.ID_Tran_Dau}`,
+        `https://premier-league-management-production.up.railway.app/api/matches/${MatchScheduleData.ID_Tran_Dau}`,
         updateMatch
       );
       //Thong bao update thanh cong

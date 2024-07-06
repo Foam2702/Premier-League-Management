@@ -59,7 +59,7 @@ function LoginForm(props) {
     };
 
     axios
-      .post("http://52.64.166.62:443/api/users/register", user)
+      .post("https://premier-league-management-production.up.railway.app/api/users/register", user)
       .then((respone) => {
         if (respone.data === "Username or Email has exist.Choose another") {
           localStorage.setItem("isLog", 0);

@@ -18,12 +18,12 @@ function StandingPage(props) {
   useEffect(() => {
     const fetchRank = async () => {
       try {
-        const data = await fetch("http://52.64.166.62:443/api/rank").then((res) =>
+        const data = await fetch("https://premier-league-management-production.up.railway.app/api/rank").then((res) =>
           res.json()
         );
 
         //find team name
-        const teamData = await fetch("http://52.64.166.62:443/api/clubs").then(
+        const teamData = await fetch("https://premier-league-management-production.up.railway.app/api/clubs").then(
           (res) => res.json()
         );
         teamData.sort(function (A, B) {

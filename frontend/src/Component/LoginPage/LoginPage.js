@@ -38,7 +38,7 @@ function LoginPage(props) {
     console.log(user)
 
     axios
-      .post("http://52.64.166.62:443/api/users/login", user)
+      .post("https://premier-league-management-production.up.railway.app/api/users/login", user)
       .then((respone) => {
         if (
           respone.data === "Wrong password" ||

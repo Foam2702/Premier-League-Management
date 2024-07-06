@@ -29,14 +29,14 @@ function TeamPage(props) {
     const fetchTeam = async () => {
       try {
         const PlayerData = await fetch(
-          `http://52.64.166.62:443/api/clubs/${teamId}/players`
+          `https://premier-league-management-production.up.railway.app/api/clubs/${teamId}/players`
         ).then((res) => res.json());
         console.log(PlayerData);
         const TeamData = await fetch(
-          `http://52.64.166.62:443/api/clubs/${teamId}`
+          `https://premier-league-management-production.up.railway.app/api/clubs/${teamId}`
         ).then((res) => res.json());
         const TeamListData = await fetch(
-          `http://52.64.166.62:443/api/clubs/`
+          `https://premier-league-management-production.up.railway.app/api/clubs/`
         ).then((res) => res.json());
 
         console.log(TeamData);
@@ -75,7 +75,7 @@ function TeamPage(props) {
 
     try {
       axios.post(
-        `http://52.64.166.62:443/api/clubs/${newPlayer.club}/players`,
+        `https://premier-league-management-production.up.railway.app/api/clubs/${newPlayer.club}/players`,
         newPlayer
       );
       //Thong bao update thanh cong

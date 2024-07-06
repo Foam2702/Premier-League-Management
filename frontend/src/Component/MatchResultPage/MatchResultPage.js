@@ -42,7 +42,7 @@ function MatchResultPage(props) {
   useEffect(() => {
     const fetchMatchResult = async () => {
       try {
-        const data = await fetch("http://52.64.166.62:443/api/matchResult").then(
+        const data = await fetch("https://premier-league-management-production.up.railway.app/api/matchResult").then(
           (res) => res.json()
         );
         console.log(data);

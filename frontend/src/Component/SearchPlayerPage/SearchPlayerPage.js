@@ -19,7 +19,7 @@ function SearchPlayerPage(props) {
     try {
       const fetchNewSearch = async function () {
         const fetchNewSearchData = await fetch(
-          `http://52.64.166.62:443/api/players/${keySearch ? `search/${keySearch}` : ""
+          `https://premier-league-management-production.up.railway.app/api/players/${keySearch ? `search/${keySearch}` : ""
           }`
         ).then((res) => res.json());
         console.log("newfetch");

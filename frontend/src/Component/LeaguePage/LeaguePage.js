@@ -27,7 +27,7 @@ function LeaguePage(props) {
   useEffect(() => {
     const fetchLeague = async () => {
       try {
-        const data = await fetch("http://52.64.166.62:443/api/clubs").then(
+        const data = await fetch("https://premier-league-management-production.up.railway.app/api/clubs").then(
           (res) => res.json()
         );
         console.log(data);
@@ -78,7 +78,7 @@ function LeaguePage(props) {
     });
     try {
       axios
-        .post("http://52.64.166.62:443/api/clubs", newTeam)
+        .post("https://premier-league-management-production.up.railway.app/api/clubs", newTeam)
         .then((respone) => {
           console.log(respone.data);
         });

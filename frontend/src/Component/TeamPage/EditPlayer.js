@@ -12,7 +12,7 @@ function EditPlayer(props) {
     try {
       const fetchPlayer = async function () {
         const data = await fetch(
-          `http://52.64.166.62:443/api/players/${playerid}`
+          `https://premier-league-management-production.up.railway.app/api/players/${playerid}`
         ).then((res) => res.json());
         console.log(data[0]);
         let birthday = new Date(data[0].Ngay_Sinh_CT);
@@ -44,7 +44,7 @@ function EditPlayer(props) {
     console.log(updatePlayer);
     try {
       axios.put(
-        `http://52.64.166.62:443/api/clubs/${TeamPageData.state.teamid}/players/${playerid}`,
+        `https://premier-league-management-production.up.railway.app/api/clubs/${TeamPageData.state.teamid}/players/${playerid}`,
         updatePlayer
       );
 
@@ -76,7 +76,7 @@ function EditPlayer(props) {
 
     try {
       axios.post(
-        `http://52.64.166.62:443/api/clubs/${TeamPageData.state.teamid}/players/${playerid}`,
+        `https://premier-league-management-production.up.railway.app/api/clubs/${TeamPageData.state.teamid}/players/${playerid}`,
         deletePlayer
       );
       //Thong bao update thanh cong
