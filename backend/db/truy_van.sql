@@ -86,7 +86,7 @@ WHERE
   ID_DOI_BONG='';
 
 -- insert kiem tra xem neu 2 doi da gap nhau chua
-INSERT INTO "TRAN_DAU" (
+INSERT INTO TRAN_DAU (
   ID_TRAN_DAU,
   DOI_BONG_ID_DOI_BONG_1,
   DOI_BONG_ID_DOI_BONG_2,
@@ -143,13 +143,13 @@ WHERE
 -- cach 3
 -- SELECT EXISTS(  select 1
 --   from tran_dau
---   where DOI_BONG_ID_Doi_Bong_1 = 106 and DOI_BONG_ID_Doi_Bong_2 = 104) as temp;
+--   where DOI_BONG_ID_DOI_BONG_1 = 106 and DOI_BONG_ID_DOI_BONG_2 = 104) as temp;
 
 --   -- truy van so cau thu nuoc ngoai trong 1 doi bong
 
 -- -- select count(*) as So_Cau_Thu_Nuoc_Ngoai
 -- -- from cau_thu
--- -- where DOI_BONG_ID_Doi_Bong = 101 and Loai_CT = 'NN';
+-- -- where DOI_BONG_ID_DOI_BONG = 101 and Loai_CT = 'NN';
 
 -- -- -- truy van tong so ban thang cau cau thu
 -- -- select count(*) AS So_Ban_Thang
