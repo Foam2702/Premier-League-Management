@@ -3,6 +3,8 @@ import "./TopScorePage.css";
 import StandingPageNavBar from "../StandingPage/StandingPageNavBar/StandingPageNavBar";
 import Player from "../Table/Player/Player";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import CircularProgress from '@mui/material/CircularProgress';
+
 import {
   faS,
   faCaretLeft,
@@ -10,6 +12,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 function TopScorePage(props) {
   const [listOfTopScore, setListOfTopScore] = useState([]);
+  const [isLoading, setisLoading] = useState(false);
+
   let TopScoreData = listOfTopScore?.map((ts, i) => {
     return { rank: i + 1, ...ts };
   });
@@ -24,14 +28,22 @@ function TopScorePage(props) {
   let renderPlayerList = TopScoreData?.slice(startItem, endItem);
   useEffect(() => {
     const fetchTopScore = async () => {
+      setisLoading(true)
       try {
-        const data = await fetch(
-          "https://premier-league-management-production.up.railway.app/api/topScore/topGoal"
-        ).then((res) => res.json());
+        let data = JSON.parse(localStorage.getItem("topScore"));
+        if (!data) {
+          data = await fetch(
+            "https://premier-league-management-production.up.railway.app/api/topScore/topGoal"
+          ).then((res) => res.json());
+          localStorage.setItem("topScore", JSON.stringify(data));
+
+        }
+
         setListOfTopScore([...data]);
       } catch (e) {
         console.log(e.message);
       }
+      setisLoading(false)
     };
 
     fetchTopScore();
@@ -46,6 +58,11 @@ function TopScorePage(props) {
   }
   return (
     <div className="TopScorePage">
+      {isLoading && (
+        <div className="loading-overlay">
+          <CircularProgress />
+        </div>
+      )}
       <StandingPageNavBar Logo="Top Score" />
       <div className="TopScoreTable">
         <div className="TopScoreHeader">

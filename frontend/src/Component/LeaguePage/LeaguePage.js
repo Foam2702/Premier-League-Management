@@ -12,9 +12,11 @@ import axios from "axios";
 import logo from "../../img/mulogo.png";
 import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+import CircularProgress from '@mui/material/CircularProgress';
 
 function LeaguePage(props) {
   const TeamNavigate = useNavigate();
+  const [isLoading, setisLoading] = useState(false);
 
   const gotoEditTeam = (info) =>
     TeamNavigate(`./EditTeam/?id=${info.id}`, {
@@ -26,15 +28,25 @@ function LeaguePage(props) {
 
   useEffect(() => {
     const fetchLeague = async () => {
+      setisLoading(true);
+
       try {
-        const data = await fetch("https://premier-league-management-production.up.railway.app/api/clubs").then(
-          (res) => res.json()
-        );
-        console.log(data);
+        let data = JSON.parse(localStorage.getItem("leaguePage"));
+        if (!data) {
+          data = await fetch("https://premier-league-management-production.up.railway.app/api/clubs").then(
+            (res) => res.json()
+          );
+          console.log(data);
+          localStorage.setItem("leaguePage", JSON.stringify(data));
+
+        }
         setListOfClubs([...data]);
+
+
       } catch (e) {
         console.log(e.message);
       }
+      setisLoading(false);
     };
 
     fetchLeague();
@@ -119,6 +131,11 @@ function LeaguePage(props) {
   }
   return (
     <div className="LeaguePage">
+      {isLoading && (
+        <div className="loading-overlay">
+          <CircularProgress />
+        </div>
+      )}
       <div
         className="Modal"
         style={{ display: DisplayPopUp ? "block" : "none" }}

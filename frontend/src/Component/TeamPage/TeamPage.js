@@ -9,6 +9,7 @@ import PlayerTable from "../Table/PlayerTable/PlayerTable";
 import teamLogo from "../../img/mulogo.png";
 import axios from "axios";
 import Swal from "sweetalert2";
+import CircularProgress from '@mui/material/CircularProgress';
 
 function TeamPage(props) {
   const PlayerNavigate = useNavigate();
@@ -21,13 +22,14 @@ function TeamPage(props) {
   const [TeamInfo, setTeamInfo] = useState([]);
   const [TeamListData, setTeamList] = useState([]);
 
-  const [isLoading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(false);
 
   const [teamId, setteamId] = useState(120);
 
   useEffect(() => {
     const fetchTeam = async () => {
       try {
+        setLoading(true)
         const PlayerData = await fetch(
           `https://premier-league-management-production.up.railway.app/api/clubs/${teamId}/players`
         ).then((res) => res.json());
@@ -45,10 +47,11 @@ function TeamPage(props) {
 
         setTeamInfo([...TeamData]);
         setTeamList([...TeamListData]);
-        setLoading(false);
       } catch (e) {
         console.log(e.message);
       }
+      setLoading(false);
+
     };
 
     fetchTeam();
@@ -118,6 +121,11 @@ function TeamPage(props) {
 
   return (
     <div className="TeamPage">
+      {isLoading && (
+        <div className="loading-overlay">
+          <CircularProgress />
+        </div>
+      )}
       <div
         className="Modal"
         style={{ display: DisplayPopUp ? "block" : "none" }}

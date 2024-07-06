@@ -116,10 +116,10 @@ function Home(props) {
 
             <p class="footer-company-about">
               <span>Thành viên</span>
-              20120133 - Phạm Lê Hoài Minh <br/>
-              20120134 - Trần Nguyễn Khải Minh <br/>
-              20120155 - Biện Viết Phẩm <br/>
-              20120184 - Phạm Quang Tân <br/>
+              20120133 - Phạm Lê Hoài Minh <br />
+              20120134 - Trần Nguyễn Khải Minh <br />
+              20120155 - Biện Viết Phẩm <br />
+              20120184 - Phạm Quang Tân <br />
             </p>
 
             <div class="footer-icons">
